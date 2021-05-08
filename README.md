@@ -42,6 +42,14 @@ Tasks:
 #### Done
 - none
 
+### Vlad Plagov
+
+#### In-Progress
+- Find an extra data set for patient's symptoms
+
+#### Done
+- none
+
 ### Eric Bair
 
 #### In-Progress
