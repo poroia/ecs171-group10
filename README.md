@@ -42,4 +42,11 @@ Tasks:
 #### Done
 - none
 
+### Eric Bair
+
+#### In-Progress
+- Integrate facial recognition model into Streamlit (image capture/image upload)
+
+#### Done
+- none
 
