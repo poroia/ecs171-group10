@@ -1,6 +1,7 @@
 # a rewrite of docker-compose for heroku LOL
 build:
   docker:
-    streamlit: Dockerfile
-    
+    web: Dockerfile
 
+run:
+  web: streamlit run ./src/app.py
