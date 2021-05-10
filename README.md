@@ -58,3 +58,13 @@ Tasks:
 #### Done
 - none
 
+### Bryan Zhang
+
+#### In-Progress
+- Setup branch protections
+- Setup development environment for web framework
+- Setup deployment pipeline
+- Prototype webpage
+
+#### Done
+- none
