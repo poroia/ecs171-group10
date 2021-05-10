@@ -54,10 +54,14 @@ Tasks:
 ### Vlad Plagov
 
 #### In-Progress
-- Find an extra data set for patient's symptoms
+- waiting for another tasks
 
 #### Done
-- none
+- Found a more fresh version of the data-set we currently have. To access:
+    - Google Drive: https://drive.google.com/file/d/1byRlHTzPTuRy6JvKKt_lb-4uuANTQxSo/view?usp=sharing
+    - VAERS website directly: https://vaers.hhs.gov/data/datasets.html?
+    - VAERS data retrieval tool: https://wonder.cdc.gov/vaers.html
+    - Documentation: https://wonder.cdc.gov/wonder/help/vaers.html#
 
 ### Eric Bair
 
