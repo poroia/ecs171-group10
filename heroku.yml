@@ -1,0 +1,6 @@
+# a rewrite of docker-compose for heroku LOL
+build:
+  docker:
+    streamlit: Dockerfile
+    
+
