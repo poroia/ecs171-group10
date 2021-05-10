@@ -2,9 +2,18 @@
 
 Due May 26
 
+## Project Setup
+1. Install all dependencies 
+  ```bash
+    python -m pip install -r requirements.txt
+  ```
+2. Run the app
+  ```bash
+    streamlit run src/app.py
+  ```
+
 ## Prototyping
-Streamlit
-Figma Link:
+Figma Link: https://www.figma.com/file/uErqjg73OIypOfXbNUqsfS/ecs171-group10
 
 ## Sprint 1: May 8 - May 13
 Tasks:
@@ -19,7 +28,7 @@ Tasks:
 - Symptoms Model: May 20
 - Deaths Model: May 20
 
-## Methods:
+## Methods
 - Facial Recognation: Convolutional Neural Network
 - Symptoms Model: Linear Regression
 - Deaths Mode: Logistics Regression
