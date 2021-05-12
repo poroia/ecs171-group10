@@ -46,10 +46,10 @@ Tasks:
 ### Ray Ngan
 
 #### In-Progress
-- Build the Linear Regession Model for patient's sysmptoms
+- 
 
 #### Done
-- none
+- Finsihed building the Logistics Regession Model for patient's sysmptoms
 
 ### Vlad Plagov
 
