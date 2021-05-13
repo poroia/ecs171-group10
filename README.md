@@ -80,3 +80,4 @@ Tasks:
 - Setup branch protections
 - Setup development environment for web framework
 - Setup deployment pipeline
+- webcam
