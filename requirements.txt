@@ -1,0 +1,4 @@
+streamlit==0.81.1
+pandas==1.2.4
+numpy==1.19.5
+streamlit-webrtc==0.20.0
