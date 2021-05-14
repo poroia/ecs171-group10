@@ -25,11 +25,11 @@ def main(state):
             return av.VideoFrame.from_ndarray(out_image, format="bgr24")
 
     ctx = webrtc_streamer(
-        key = "snapshot", 
-        client_settings = ClientSettings(
-            media_stream_constraints = {"video": True, "audio": False},
+        key="snapshot", 
+        client_settings=ClientSettings(
+            media_stream_constraints={"video": True, "audio": False},
         ),
-        video_processor_factory = VideoProcessor
+        video_processor_factory=VideoProcessor
     )
 
     if ctx.video_processor:
