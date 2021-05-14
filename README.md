@@ -7,6 +7,8 @@ Due May 26
   ```bash
     python -m pip install -r requirements.txt
   ```
+_Note: During the install, you might get an error setting up netifaces. Follow instructions here: https://stackoverflow.com/questions/64261546/python-cant-install-packages_
+
 2. Run the app
   ```bash
     streamlit run src/app.py
