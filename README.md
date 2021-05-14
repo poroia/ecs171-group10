@@ -54,7 +54,7 @@ Tasks:
 ### Vlad Plagov
 
 #### In-Progress
-- waiting for another tasks
+- Working on Logistic Regression Model for patient's outcomes
 
 #### Done
 - Found a more fresh version of the data-set we currently have. To access:
