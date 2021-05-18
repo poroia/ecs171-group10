@@ -54,7 +54,7 @@ Tasks:
 ### Vlad Plagov
 
 #### In-Progress
-- Working on Logistic Regression Model for patient's outcomes
+- waiting for another tasks
 
 #### Done
 - Found a more fresh version of the data-set we currently have. To access:
@@ -62,6 +62,7 @@ Tasks:
     - VAERS website directly: https://vaers.hhs.gov/data/datasets.html?
     - VAERS data retrieval tool: https://wonder.cdc.gov/vaers.html
     - Documentation: https://wonder.cdc.gov/wonder/help/vaers.html#
+- Finished on Logistic Regression Model for patient's outcomes
 
 ### Eric Bair
 
