@@ -14,3 +14,6 @@ env/
 
 # Specific
 age_gender.csv
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints
