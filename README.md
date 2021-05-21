@@ -3,6 +3,14 @@
 Due May 26
 
 ## Project Setup
+0. Create venv and activate
+  ```bash
+    python -m venv env
+  ```
+  ```bash
+    source env/bin/activate # macos/linux
+    .\env\Scripts\activate # windows
+  ```
 1. Install all dependencies 
   ```bash
     python -m pip install -r requirements.txt
