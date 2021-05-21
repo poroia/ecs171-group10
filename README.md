@@ -64,7 +64,7 @@ Tasks:
 ### Vlad Plagov
 
 #### In-Progress
-- waiting for another tasks
+- Working on the video for demo
 
 #### Done
 - Found a more fresh version of the data-set we currently have. To access:
