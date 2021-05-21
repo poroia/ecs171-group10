@@ -9,5 +9,8 @@ __pycache__/
 # Mac OS
 .DS_Store
 
+# Virtual Env
+env/
+
 # Specific
 age_gender.csv

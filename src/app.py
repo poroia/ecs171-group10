@@ -1,24 +1,33 @@
-import numpy as np
 import streamlit as st
-
-from ui import welcome, predict
-
-state = {
-    "navigation": None,
-    "test": 5
-}
-
-PAGES = {
-    "Welcome": welcome.main,
-    "Predict": predict.main,
-}
+from collections import OrderedDict
+from ui import welcome, predict, session
 
 
-def main():
+# state = {
+#    "navigation": None, # current page name
+#    "inputs": {
+#        "picture": PIL.Image | None,
+#    },
+# }
+def main(state: session._SessionState):
+    pages = OrderedDict(
+        (
+            ("Welcome", welcome.main),
+            ("Predict", predict.main),
+        )
+    )
+
     st.sidebar.title("Navigation")
-    state["navigation"] = st.sidebar.radio("", list(PAGES.keys()))
-    PAGES[state["navigation"]](state)
+
+    navigation_index = list(pages.keys()).index(state.navigation or "Welcome")
+    state.navigation = st.sidebar.radio(
+        "", list(pages.keys()), index=navigation_index)
+
+    pages[state.navigation](state)
+
+    # Mandatory to avoid rollbacks with widgets, must be called at the end of your app
+    state.sync()
 
 
 if __name__ == "__main__":
-    main()
+    main(session._get_state())

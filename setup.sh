@@ -8,6 +8,5 @@ email = \"\"\n\
 echo "\
 [server]\n\
 port = $PORT\n\
-enableCORS = false\n\
-enableXsrfProtection = false\n\
+magicEnabled = false\n\
 " > ~/.streamlit/config.toml
