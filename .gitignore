@@ -19,5 +19,5 @@ env-ipynb/
 # vscode
 .vscode/
 
-# Specific
-age_gender.csv
+# Datasets
+*.csv
