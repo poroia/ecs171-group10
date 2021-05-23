@@ -12,8 +12,11 @@ __pycache__/
 # Virtual Env
 env/
 
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# vscode
+.vscode/
+
 # Specific
 age_gender.csv
-
-# Jupyter Notebook Checkpoints
-.ipynb_checkpoints

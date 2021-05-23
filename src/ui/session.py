@@ -83,7 +83,12 @@ def _get_state(hash_funcs=None):
 
         # initialize
         session._ecs171_group10.inputs = {
-            'picture' : None
+            # Input picture to Facial Recognition model
+            'picture': None,
+            # User-inputted non-processed picture
+            'picture_raw': None,
+            # If the user has created a selection box once already
+            'cropper_cropped_once': False,
         }
         session._ecs171_group10.inputs_expanded = True
 

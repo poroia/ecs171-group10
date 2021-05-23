@@ -1,6 +1,6 @@
 import streamlit as st
 from collections import OrderedDict
-from ui import welcome, predict, session
+from ui import welcome, inputs, results, session
 
 
 # state = {
@@ -13,7 +13,8 @@ def main(state: session._SessionState):
     pages = OrderedDict(
         (
             ("Welcome", welcome.main),
-            ("Predict", predict.main),
+            ("Inputs", inputs.main),
+            ("Results", results.main),
         )
     )
 
