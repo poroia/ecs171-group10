@@ -13,7 +13,7 @@ def main(state):
     st.write("Our project goal is to inform and give relief to people who are still deliberating on whether they should get a COVID-19 vaccine. We aim to provide objective facts and figures regarding COVID-19 vaccine side effects in a way that is both easy to understand and tailored to each individual user.")
 
     if st.button("Let's get started!"):
-        state.navigation = "Predict"
+        state.navigation = "Inputs"
 
 
 # Only used if this file is ran directly
