@@ -42,26 +42,26 @@ def picture_input(state):
 
     with cropper_col:
         picture_area = st.empty()
-        if state.inputs["picture_raw"]:
-            st.write("Please crop the picture so that your face fits the frame.")
+        if state.inputs_config["picture_raw"]:
+            st.write("Please crop the picture so that your face fits perfectly in the frame.")
 
             cropped_image = image_crop(
-                state.inputs["picture_raw"],
+                state.inputs_config["picture_raw"],
                 key="ecs171-group10",
                 crop=Crop(aspect=1.0),
             )
 
             if cropped_image:
                 state.inputs["picture"] = cropped_image.resize((48, 48))
-                state.inputs["cropper_cropped_once"] = True
+                state.inputs_config["cropper_cropped_once"] = True
                 st.image(state.inputs["picture"])  # debugging
 
-            elif not state.inputs["cropper_cropped_once"]:
+            elif not state.inputs_config["cropper_cropped_once"]:
                 st.warning(
                     ":warning: Don't forget to crop your picture!"
                 )
 
-            elif state.inputs["cropper_cropped_once"]:
+            elif state.inputs_config["cropper_cropped_once"]:
                 st.error(
                     ":no_entry: Make sure you have a selection box around your face!"
                 )
@@ -113,8 +113,7 @@ def webcam(state):
                 out_image = ctx.video_processor.out_image
 
             if out_image is not None:
-                state.inputs["picture_raw"] = out_image
-                state.inputs["show_cropper"] = True
+                state.inputs_config["picture_raw"] = out_image
 
             else:
                 st.warning("No frames available yet.")
@@ -125,8 +124,7 @@ def file_uploader(state):
 
     if file_buffer is not None:
         out_image = PILImage.open(file_buffer)
-        state.inputs["picture_raw"] = out_image
-        state.inputs["show_cropper"] = True
+        state.inputs_config["picture_raw"] = out_image
 
 
 # Only used if this file is ran directly
