@@ -60,6 +60,7 @@ Tasks:
 
 #### Done
 - Finsihed building the Logistics Regession Model for patient's sysmptoms
+- Working on the video for demo
 
 ### Vlad Plagov
 
