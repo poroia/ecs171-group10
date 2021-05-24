@@ -78,6 +78,9 @@ Tasks:
 
 #### In-Progress
 - Integrate facial recognition model into Streamlit (image capture/image upload)
+- Testing webapp locally
+- Working on demo video
+- Working on final report
 
 #### Done
 - none
