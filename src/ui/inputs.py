@@ -23,8 +23,6 @@ def main(state):
 
     inputs_form(state)
 
-    age = st.slider("How old are you?", 0, 130, 25)
-
 
 def inputs_form(state):
     picture_input(state)
