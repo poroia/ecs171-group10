@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+streamlit = ">=0.76.0"
+streamlit-webrtc = ">=0.20.0"
+streamlit-image-crop = ">=0.2.0"
+
+pandas = ">=1.2.4"
+numpy = ">=1.19.5"
+scikit-learn = ">=0.24.2"
+tensorflow = ">=2.5.0"
+keras = ">=2.4.3"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
