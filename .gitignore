@@ -21,3 +21,4 @@ env-ipynb/
 
 # Datasets
 *.csv
+!df_state.csv
