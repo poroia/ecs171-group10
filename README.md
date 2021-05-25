@@ -9,7 +9,7 @@ Due May 26
   ```
   ```bash
     source env/bin/activate # macos/linux
-    .\env\Scripts\activate # windows
+    ./env/Scripts/activate # windows
   ```
 1. Install all dependencies 
   ```bash
