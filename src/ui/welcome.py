@@ -1,5 +1,7 @@
 import streamlit as st
 
+from ui import utils
+
 
 def main(state):
 
@@ -13,11 +15,16 @@ def main(state):
     st.write("Our project goal is to inform and give relief to people who are still deliberating on whether they should get a COVID-19 vaccine. We aim to provide objective facts and figures regarding COVID-19 vaccine side effects in a way that is both easy to understand and tailored to each individual user.")
 
     if st.button("Let's get started!"):
-        state.navigation = "Inputs"
+        state.navigation = "Predict"
 
 
 # Only used if this file is ran directly
 # Useful for developing with hot reloading
 if __name__ == "__main__":
     from session import _get_state
-    main(_get_state())
+    state = _get_state()
+    state.navigation = 'Welcome'
+
+    main(state)
+
+    utils.main_debug_helper(state)

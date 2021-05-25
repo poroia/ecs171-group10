@@ -81,6 +81,14 @@ def _get_state(hash_funcs=None):
         session._ecs171_group10 = _SessionState(session, hash_funcs)
 
         # initialize
+        session._ecs171_group10.navigation = 'Welcome'
+        session._ecs171_group10.settings = {
+            'sidebar_width': {
+                'Welcome': 366,
+                'Predict': 420,
+                'Explore': 366,
+            }
+        }
         session._ecs171_group10.inputs = {
             # Input picture to Facial Recognition model
             'picture': None, # Optional[PILImage.Image]
