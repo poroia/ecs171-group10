@@ -27,16 +27,27 @@ def main(state):
 def inputs_form(state):
     picture_input(state)
 
-    if st.button("Submit"):
-        # until we can store state of beta_expander, this will only work once
-        # because nothing else can turn this true
-        state.inputs_expanded = False
+    first_col, second_col = st.beta_columns((1, 1))
+    
+    with first_col:
+        vax_manu: str
+        vax_manu = st.radio(
+            "Which vaccine did you get?", ("Pfizer\BioNTech", "Moderna", "J&J\Janssen"))
+        if vax_manu == 'J&J\Janssen':
+            vax_manu = 'Janssen'
+        state.inputs['vax_manu'] = vax_manu.upper()
+    
+    with second_col:
+        state.inputs['vax_dose_series'] = st.radio("Which dose have you gotten so far?", (1, 2))
+
+    if st.button("See results!"):
+        state.navigation = "Results"
 
 
 def picture_input(state):
     picture_area: st = None
 
-    cropper_col, capture_col = st.beta_columns([1, 1.5])
+    cropper_col, capture_col = st.beta_columns((1, 1.5))
 
     with cropper_col:
         picture_area = st.empty()
@@ -54,12 +65,14 @@ def picture_input(state):
                 state.inputs_config["cropper_cropped_once"] = True
                 st.image(state.inputs["picture"])  # debugging
 
-            elif not state.inputs_config["cropper_cropped_once"]:
+            elif not state.inputs_config["cropper_cropped_once"] \
+                and state.inputs["picture"] is None:
                 st.warning(
                     ":warning: Don't forget to crop your picture!"
                 )
 
-            elif state.inputs_config["cropper_cropped_once"]:
+            elif state.inputs_config["cropper_cropped_once"] \
+                and state.inputs["picture"] is None:
                 st.error(
                     ":no_entry: Make sure you have a selection box around your face!"
                 )
@@ -118,7 +131,7 @@ def webcam(state):
 
 
 def file_uploader(state):
-    file_buffer = st.file_uploader("", type="jpg")
+    file_buffer = st.file_uploader("", type=["png", "jpg", "jpeg"])
 
     if file_buffer is not None:
         out_image = PILImage.open(file_buffer)
