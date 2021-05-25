@@ -1,5 +1,4 @@
 from streamlit.hashing import _CodeHasher
-
 from streamlit.report_thread import get_report_ctx
 from streamlit.server.server import Server
 
@@ -84,12 +83,17 @@ def _get_state(hash_funcs=None):
         # initialize
         session._ecs171_group10.inputs = {
             # Input picture to Facial Recognition model
-            'picture': None,
+            'picture': None, # Optional[PILImage.Image]
+            'sex': None, # Optional[str]
+            'age_range': None, # Optional[Tuple(int, int)]
+            'vax_manu': None, # str
+            'vax_dose_series': None # int
+        }
+        session._ecs171_group10.inputs_config = {
             # User-inputted non-processed picture
-            'picture_raw': None,
+            'picture_raw': None, # PIL.Image
             # If the user has created a selection box once already
             'cropper_cropped_once': False,
         }
-        session._ecs171_group10.inputs_expanded = True
 
     return session._ecs171_group10
