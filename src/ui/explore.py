@@ -2,10 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pydeck as pdk
-import datetime
-import time
+import os
 
 from ui import utils
+
+# correctly establishes base path if you run app.py
+# or this script for debugging purposes 
+ROOT_RELATIVE_PATH = "./"
 
 # Heat Map and Bar Chart Visualization
 
@@ -22,11 +25,11 @@ def main(state):
     st.write("Let's take a look at some general data:")
 
     #Import the dataset 
-    path = ('../prototype/data/df_state.csv')
     @st.cache(allow_output_mutation=True)
 
     def load_data():
-        data = pd.read_csv(path)
+        print(os.listdir('./'))
+        data = pd.read_csv(os.path.join(ROOT_RELATIVE_PATH, './prototype/data/df_state.csv'))
         #data['date'] = pd.to_datetime(data['date'],format='%m/%d/%Y' ).dt.strftime('%Y-%m-%d')
         return data.dropna()
 
@@ -120,6 +123,7 @@ def encode_option(option):
 # Only used if this file is ran directly
 # Useful for developing with hot reloading
 if __name__ == "__main__":
+    ROOT_RELATIVE_PATH = "../"
     from session import _get_state
     state = _get_state()
     state.navigation = 'Explore'

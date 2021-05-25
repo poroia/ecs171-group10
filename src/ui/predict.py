@@ -426,7 +426,6 @@ def debug(state):
 # Useful for developing with hot reloading
 if __name__ == "__main__":
     ROOT_RELATIVE_PATH = "../"
-    print("I WAS HERE LOL")
     from session import _get_state
     state = _get_state()
     state.navigation = 'Predict'
