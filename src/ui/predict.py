@@ -3,6 +3,7 @@ import threading
 import joblib
 import streamlit as st
 import numpy as np
+import pandas as pd
 from typing import Callable, Tuple, Optional
 from tensorflow import keras
 from PIL import Image as PILImage
@@ -191,10 +192,6 @@ def results(state):
             state.inputs['vax_dose_series']
         )
 
-
-        import pandas as pd
-        import altair as alt
-
         # preprocess
         sex = "male" if sex_raw == 'M' else 'female'
         age_start, age_end = age_range_raw
@@ -271,6 +268,7 @@ def results(state):
         # st.altair_chart((bars + text).properties(height=300))
     
     else:
+        st.write("###")
         st.info("Start by filling out your information on the sidebar!")
 
 
@@ -429,6 +427,7 @@ def debug(state):
 # Useful for developing with hot reloading
 if __name__ == "__main__":
     ROOT_RELATIVE_PATH = "../"
+    print("I WAS HERE LOL")
     from session import _get_state
     state = _get_state()
     state.navigation = 'Predict'
