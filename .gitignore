@@ -10,6 +10,7 @@ __pycache__/
 .DS_Store
 
 # Virtual Env
+.venv/
 env/
 env-ipynb/
 
@@ -21,3 +22,4 @@ env-ipynb/
 
 # Datasets
 *.csv
+!df_state.csv

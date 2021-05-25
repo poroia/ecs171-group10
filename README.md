@@ -3,23 +3,22 @@
 Due May 26
 
 ## Project Setup
-0. Create venv and activate
+0. Create pipenv and activate
   ```bash
-    python -m venv env
-  ```
-  ```bash
-    source env/bin/activate # macos/linux
-    .\env\Scripts\activate # windows
+    $ mkdir .venv/ # from project root
+    $ pipenv shell
   ```
 1. Install all dependencies 
   ```bash
-    python -m pip install -r requirements.txt
+    $ pipenv install
   ```
-_Note: During the install, you might get an error setting up netifaces. Follow instructions here: https://stackoverflow.com/questions/64261546/python-cant-install-packages_
+_Note:_
+- _During the install, you might get an error setting up netifaces. Follow instructions here: https://stackoverflow.com/questions/64261546/python-cant-install-packages_
+- _Also, if you run into errors with conflicting packages or individual packages, you can try doing steps 0 and 1 again (deleting the old the `env/` folder)_
 
 2. Run the app
   ```bash
-    streamlit run src/app.py
+    $ streamlit run src/app.py
   ```
 
 ## Prototyping

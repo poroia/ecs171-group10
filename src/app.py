@@ -1,30 +1,28 @@
 import streamlit as st
-from collections import OrderedDict
-from ui import welcome, inputs, results, session
+from ui import welcome, predict, explore, utils, session
 
 
-# state = {
-#    "navigation": None, # current page name
-#    "inputs": {
-#        "picture": PIL.Image | None,
-#    },
-# }
 def main(state: session._SessionState):
-    pages = OrderedDict(
-        (
-            ("Welcome", welcome.main),
-            ("Inputs", inputs.main),
-            ("Results", results.main),
-        )
-    )
+    pages = {
+        "Welcome": welcome.main,
+        "Predict": predict.main,
+        "Explore": explore.main,
+    }     
 
-    st.sidebar.title("Navigation")
+    with st.sidebar:
+        st.title("Navigation")
 
-    navigation_index = list(pages.keys()).index(state.navigation or "Welcome")
-    state.navigation = st.sidebar.radio(
-        "", list(pages.keys()), index=navigation_index)
+        navigation_index = list(pages.keys()).index(state.navigation or "Welcome")
+        state.navigation = st.radio(
+            "", list(pages.keys()), index=navigation_index)
+        
 
     pages[state.navigation](state)
+
+    with st.sidebar:
+        st.markdown("***")
+        st.title("Settings")
+        utils.sidebar_width_slider(state)
 
     # Mandatory to avoid rollbacks with widgets, must be called at the end of your app
     state.sync()
