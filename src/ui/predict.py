@@ -11,7 +11,6 @@ from av import VideoFrame
 from streamlit_webrtc import VideoProcessorBase, ClientSettings, \
     webrtc_streamer
 from streamlit_image_crop import image_crop, Crop
-from tensorflow.python.ops.gen_array_ops import reverse
 
 from ui import utils
 
