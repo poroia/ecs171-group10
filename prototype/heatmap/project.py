@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pydeck as pdk
-import datetime
+from datetime import datetime
 import time
 
 #Heat Map and Bar Chart Visualization
@@ -23,7 +23,8 @@ path = ('df_state.csv')
 
 def load_data():
     data = pd.read_csv(path)
-    #data['date'] = pd.to_datetime(data['date'],format='%m/%d/%Y' ).dt.strftime('%Y-%m-%d')
+    #data['date'] = pd.to_datetime(data['date'],format='%Y-%m-%d' ).dt.strftime('%Y-%m-%d')
+    data = data.dropna()
     return data
 
 df = load_data()
@@ -57,11 +58,15 @@ temp = temp[temp['state'].isin(state_name_input)].groupby('date').sum()
 
 st.markdown( str(state_name_input[0:len(state_name_input)]) + " daily vaccine doses from 1st Jan 2021")
 st.bar_chart(temp[[option]])
+#######
+
 
 
 ######
 # Start date
-date = datetime.date(2021,1,1)
+
+#date = datetime.date(2021,1,1)
+
 
 
 # Set viewport for the deckgl map
@@ -94,33 +99,46 @@ r = pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v10"
 )
 
+
+
 # Create a subheading to display current date
-subheading = st.subheader("")
+
+date = st.slider("",
+        value=datetime(2021, 1, 1), 
+        min_value=datetime(2021, 1, 1), 
+        max_value=datetime(2021, 3, 19))
+
+
+#date_ = st.selectbox("", options=temp.index)
 
 
 # Render the deck.gl map in the Streamlit app as a Pydeck chart 
 map = st.pydeck_chart(r)
 
+
+
 #iterate for the 77 days 
-for i in range(0, 77, 1):
-    # Increment day by 1
-     
-    date += datetime.timedelta(days=1)
-
-    # Update data in map layers
-        
-    covidLayer.data = df[df['date'] == date.isoformat()]
-
-    # Update the deck.gl map
-    r.update()
-
-    # Render the map
-    map.pydeck_chart(r)
-
-    # Update the heading with current date
-    subheading.subheader("%s on : %s" % (option, date.strftime("%B %d, %Y")))
+#for i in range(0, 77, 1):
+   # Increment day by 1
     
+
+#date += datetime.timedelta(days=1)
+
+
+# Update data in map layers
+
+covidLayer.data = df[df['date'] == date.strftime('%Y-%m-%d')]
+
+# # Update the deck.gl map
+r.update()
+
+# # Render the map
+map.pydeck_chart(r)
+
+# # Update the heading with current date
+#subheading.subheader("%s on : %s" % (option, date))
+
     # wait 0.1 second before go onto next day
-    time.sleep(0.3)
+  #  time.sleep(0.3)
 
 
