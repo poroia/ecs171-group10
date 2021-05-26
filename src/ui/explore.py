@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import pydeck as pdk
 import os
+from datetime import datetime
 
 from ui import utils
 
@@ -28,7 +29,6 @@ def main(state):
     @st.cache(allow_output_mutation=True)
 
     def load_data():
-        print(os.listdir('./'))
         data = pd.read_csv(os.path.join(ROOT_RELATIVE_PATH, './prototype/data/df_state.csv'))
         #data['date'] = pd.to_datetime(data['date'],format='%m/%d/%Y' ).dt.strftime('%Y-%m-%d')
         return data.dropna()
@@ -100,14 +100,16 @@ def main(state):
     # Create a subheading to display current date
     st.subheader(f"{option} on:")
 
-    # date_array = map(, temp.index)
-    date_ = st.selectbox("", options=temp.index)
-
+    date = st.slider("",
+        value=datetime(2021, 1, 1), 
+        min_value=datetime(2021, 1, 1), 
+        max_value=datetime(2021, 3, 19))
+    
     # Render the deck.gl map in the Streamlit app as a Pydeck chart 
     map = st.pydeck_chart(r)
     
     # Update data in map layers
-    covidLayer.data = df[df['date'] == date_]
+    covidLayer.data = df[df['date'] == date.strftime('%Y-%m-%d')]
 
     # Update the deck.gl map
     r.update()
@@ -123,7 +125,7 @@ def encode_option(option):
 # Only used if this file is ran directly
 # Useful for developing with hot reloading
 if __name__ == "__main__":
-    ROOT_RELATIVE_PATH = "../"
+    ROOT_RELATIVE_PATH = "./"
     from session import _get_state
     state = _get_state()
     state.navigation = 'Explore'
