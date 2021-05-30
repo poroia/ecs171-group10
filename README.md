@@ -94,3 +94,11 @@ Tasks:
 - Setup development environment for web framework
 - Setup deployment pipeline
 - webcam
+
+#### Jessy Huang
+
+#### In-Progress
+- Working on final report (solutions and conclusion)
+
+#### Done
+- final report (introduction - last half)
